@@ -27,7 +27,7 @@ return $data;
  
 if($result==TRUE)
 {
-	echo "DATA INSERTED SUCCESSFULLY to the Database";
+	echo "DATA INSERTED SUCCESSFULLY";
 }
 else
 {
