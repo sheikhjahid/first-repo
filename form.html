@@ -1,0 +1,103 @@
+<html>
+<title>
+</title>
+<head>
+	<style>
+	
+input[type=text]{
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/
+@media (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+    </style>	
+</head>
+
+<body>
+
+	<marquee><b><i>SIGN-UP FORM</i></b></marquee>
+	<div class-"container" style="background-color: green; text-align: left;">
+		<form method="get" action="insertform.php">
+        <input type="submit" value="Sign-up" name="insert">
+		</br>
+	    </br>
+			<label><b><i>FIRST NAME</i></b></label>
+			<input type="text" placehoder="Enter your firstname" name="firstname" required>
+		</br>
+	    </br>
+	    <label><b><i>LAST NAME</i></b></label>
+			<input type="text" placehoder="Enter your lastname" name="lastname" required>
+		</br>
+	    </br>
+	    <label><b><i>EMAIL</i></b></label>
+			<input type="text" placehoder="Enter your email" name="email" required>
+		</br>
+	    </br>
+	    <label><b><i>PHONE</i></b></label>
+			<input type="text" placehoder="Enter your phone number" name="phone"  pattern="(?=.*/d).{10,}" title="Please fill in with numbers only!!"required>
+		</br>
+	    </br>
+	    <label><b><i>ADDRESS</i></b></label>
+			<input type="text" placehoder="Enter your address" name="address" required>
+		</br>
+	    </br>
+	    <label><b><i>USERNAME</i></b></label>
+			<input type="text" placehoder="Enter your username" name="username" required>
+		</br>
+	    </br>
+	    <label><b><i>PASSWORD</i></b></label>
+			<input type="password" placehoder="Enter your password" id="password"  name="password" required>
+	</div>
+	</body>
+</html>
