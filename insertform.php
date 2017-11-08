@@ -1,37 +1,54 @@
 <?php
-include_once ('dbconfig.php');
+include('dbconfig.php');
+?>
+<?php
+$x1=$_REQUEST["a"];
+$x2=$_REQUEST["b"];
+$x3=$_REQUEST["c"];
+$x4=$_REQUEST["d"];
+$x5=$_REQUEST["e"];
+$x6=$_REQUEST["f"];
+$x7=$_REQUEST["g"];
+echo "</br>";
+echo "</br>";
+echo "FISRTNAME=".$x1;
+echo "</br>";
+echo "</br>";
+echo "LASTNAME=".$x2;
+echo "</br>";
+echo "</br>";
+echo "EMAIL=".$x3;
+echo "</br>";
+echo "</br>";
+echo "PHONE=".$x4;
+echo "</br>";
+echo "</br>";
+echo "ADDRESS=".$x5;
+echo "</br>";
+echo "</br>";
+echo "USERNAME=".$x6;
+echo "</br>";
+echo "</br>";
+echo "PASSWORD=".$x7;
+$fname=$lname=$eml=$phn=$addr=$user=$pass="";
+if(isset($_POST['txtbutton']))
+{
+$fname=$_POST["a"];
+$lname=$_POST["b"];
+$eml=$_POST["c"];
+$phn=$_POST["d"];
+$addr=$_POST["e"];
+$uname=$_POST["f"];
+$pass=$_POST["g"];
+$sql="insert into registration(firstname,lastname,email,phone,address,username,password) values('$fname','$lname','$eml','$phn','$addr','$uname','$pass')";
 
-$fname=$lname=$eml=$phn=$addr=$uname=$pass="";
-if($_SERVER["REQUEST_METHOD"]=="POST")
+if($conn->query($sql)===TRUE)
 {
-	$fname=test_input($_POST["firstname"]);
-	$lname=test_input($_POST["lastname"]);
-	$eml=test_input($_POST["email"]);
-	$phn=test_input($_POST["phone"]);
-	$addr=test_input($_POST["address"]);
-	$uname=test_input($_POST["username"]);
-	$pass=test_input($_POST["password"]);
-	if (isset($_POST["insert"]))
- {
-  echo $sql="INSERT INTO registration(firstname,lastname,email,phone,address,username,password)VALUES('".$_POST["firstname"]."','".$_POST["lastname"]."','".$_POST["email"]."','".$_POST["phone"]."','".$_POST["address"]."','".$_POST["username"]."','".md5($_POST["password"])."')";
-	mysqli_query($conn,$sql);
-}
-}
-function test_input($data)
-{
-$data=trim($data);
-$data=stripslashes($data);
-$data=htmlspecialchars($data);
-return $data;
-}
- 
-if($result==TRUE)
-{
-	echo "DATA INSERTED SUCCESSFULLY";
+	echo "DATA INSERTED";
 }
 else
 {
-	echo "DATA NOT INSERTED".$conn->error;
+	echo "DATA NOT INSERTED";
 }
-$conn->Close();
+}
 ?>
