@@ -48,7 +48,7 @@ function filtertable($query)
 				<td><?php echo $row["address"];?></td>
 				<td><?php echo $row["username"];?></td>
 				<td><a href="v.php?id=<?php echo $row["id"]; ?>" name="view">VIEW</a></td>
-				<td><a href="change.php">UPDATE</a></td>
+				<td><a href="update.php?id=<?php echo $row["id"];?>">UPDATE</a></td>
 				<td><a href="delete.php?id=<?php echo $row["id"];?>">DELETE</a></td>
 		</tr>
 	<?php endwhile; ?>

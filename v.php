@@ -1,5 +1,7 @@
 <?php
 include('dbconfig.php');
+echo  "</br>";
+echo "</br>";
     $var=$_GET['id'];
 
     $query="SELECT `id`, `firstname`, `lastname`, `email`, `phone`, `address`, `username`FROM `registration` WHERE id=$var LIMIT 0,1";
@@ -8,25 +10,27 @@ include('dbconfig.php');
     {
       $row=mysqli_fetch_array($result);
       print_r($row);
-      echo $row['id'];
       echo "</br>";
       echo "</br>";
-      echo $row['firstname'];
+        echo "ID="; echo $row['id'];
       echo "</br>";
       echo "</br>";
-      echo $row['lastname'];
+      echo "FIRSTNAME="; echo $row['firstname'];
       echo "</br>";
       echo "</br>";
-      echo $row['email'];
+      echo "LASTNAME="; echo $row['lastname'];
       echo "</br>";
       echo "</br>";
-      echo $row['phone'];
+      echo "EMAIL="; echo $row['email'];
       echo "</br>";
       echo "</br>";
-      echo $row['address'];
+      echo "PHONE="; echo $row['phone'];
       echo "</br>";
       echo "</br>";
-      echo $row['username'];
+      echo "ADDRESS="; echo $row['address'];
+      echo "</br>";
+      echo "</br>";
+      echo "USERNAME="; echo $row['username'];
       echo "</br>";
       echo "</br>";
     
