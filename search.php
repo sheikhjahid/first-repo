@@ -15,17 +15,16 @@
 <body>
 	<?php
 
+$query="SELECT `id`, `firstname`, `lastname`, `email`, `phone`, `address`, `username` FROM `registration`";
+    $search_result=filtertable($query);
 
-		$query="SELECT `id`, `firstname`, `lastname`, `email`, `phone`, `address`, `username` FROM `registration`";
-		$search_result=filtertable($query);
-
-	function filtertable($query)
-	{
-		$conn=mysqli_connect("localhost","root","office","test");
-		$filter_result=mysqli_query($conn,$query);
-		return $filter_result;
-	}
-	?>
+  function filtertable($query)
+  {
+    $conn=mysqli_connect("localhost","root","office","test");
+    $filter_result=mysqli_query($conn,$query);
+    return $filter_result;
+  }
+  ?>	
 	<form action="search.php" method="post">
 <input type="text" name="searchvalue" placeholder="write something..">
 <?php
@@ -46,10 +45,10 @@
 			<div class="col-md-2">LASTNAME</div>
 			<div class="col-md-2">EMAIL</div>
 			<div class="col-md-1">PHONE</div>
-			<div class="col-md-1">ADDR</div>
+			<div class="col-md-1">ADDRESS</div>
 			<div class="col-md-1">USERNAME</div>
-			<div class="col-md-2">&nbsp;</div>
-		</div>
+			<div class="col-md=2"></div>
+			</div>
 	</div>
 	<div class="col-md-12">	
 	<?php 
@@ -64,12 +63,12 @@
 		<div class="col-md-1"><?php echo $row["phone"]; ?></div>
 		<div class="col-md-1"><?php echo $row["address"];?></div>
 		<div class="col-md-1"><?php echo $row["username"];?></div>
-		<div class="col-md-2">
-			<a href="v.php?id=<?php echo $row["id"]; ?>" name="view"><i class="fa fa-eye" aria-hidden="true"></i></a>
-			<a href="update.php?id=<?php echo $row["id"];?>"><i class="fa fa-edit" aria-hidden="true"></i></a>
-			<a href="delete.php?id=<?php echo $row["id"];?>"><i class="fa fa-trash" aria-hidden="true"></i></a>
-		</div>
-	<?php
+		<div class="col-md-2"><a href="v.php?id=<?php echo $row["id"]; ?>" name="view"><i class="fa fa-eye" aria-hidden="true"></i></a>
+		<a href="update.php?id=<?php echo $row["id"];?>"><i class="fa fa-edit" aria-hidden="true"></i></a>
+		<a href="delete.php?id=<?php echo $row["id"];?>"><i class="fa fa-trash" aria-hidden="true"></i></a>
+	</div>
+		
+		<?php
 		}
 
 	?>
