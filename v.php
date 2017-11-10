@@ -8,6 +8,7 @@
   
 </head>
 <body>
+  <form action="search.php" method="post">
 <?php
 $var=$_GET['id'];
 $query="SELECT `id`, `firstname`, `lastname`, `email`, `phone`, `address`, `username` FROM `registration` WHERE `id`=$var";
@@ -69,9 +70,13 @@ $query="SELECT `id`, `firstname`, `lastname`, `email`, `phone`, `address`, `user
     <div class="col-md-10"><?php echo $row["username"];?></div>
   </div>
 </div>
-
-    
-    
+</br>
+</br>
+<nav aria-label="back">
+ <ul class="pager">
+ <li><a href="search.php">PREVIOUS</a></li>
+ </ul>
+ </nav>   
     <?php
     }
 

@@ -13,6 +13,10 @@ function filtertable($query)
 <!DOCTYPE html>
 <html>
 <title></title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <head>
 	
 		<style>
@@ -60,6 +64,16 @@ input[type=submit] {
   margin-top: 6px;
 }
 
+.wrapper{
+	text-align: center;
+}
+.button
+{
+	top: 74%;
+	position:absolute;
+
+}
+
 .row:after {
   content: "";
   display: table;
@@ -75,45 +89,62 @@ input[type=submit] {
 }
     </style>
 </head>
-<body bgcolor="orange">
-	<div class="container" style="background-color:orange;">
+<body>
+	
+	<div class="container">
+		<center><label><b><u>UPDATE PORTAL</u></b></label></center>
 <form action="update_action.php?id=<?php echo $var; ?>" method="post">
-</br>
-</br>
-<label><b><marquee>UPDATE PORTAL</marquee></b></label>
-</br>
-</br>
+
+
 <?php while($row=mysqli_fetch_array($search)) :?>
 
-<label><b>CHANGE FIRSTNAME</b></label>
-<input type="text" placeholder="CHANGE FIRSTNAME HERE" name="change_firstname" value="<?php echo $row['firstname'] ?>">
+<div class="input-group">
+  <span class="input-group-addon" id="basic-addon1"><i>FIRSTNAME</i></span>
+  <input type="text" class="form-control" placeholder="change_firstname"  name= "change_firstname" aria-describedby="basic-addon1" value="<?php echo $row['firstname'] ?>">
+</div>
+</br>
+</br>
+<div class="input-group">
+  <span class="input-group-addon" id="basic-addon1"><i>LASTNAME</i></span>
+  <input type="text" class="form-control" placeholder="change your firstname"  name= "change_lastname" aria-describedby="basic-addon1" value="<?php echo $row['lastname'] ?>">
+</div>
 </br>
 </br>
 
-<label><b>CHANGE LASTNAME</b></label>
-<input type="text" placeholder="CHANGE LASTNAME HERE" name="change_lastname"  value="<?php echo $row['lastname'] ?>">
+<div class="input-group">
+  <span class="input-group-addon" id="basic-addon1"><i>EMAIL</i></span>
+  <input type="text" class="form-control" placeholder="change your lastname"  name= "change_email" aria-describedby="basic-addon1" value="<?php echo $row['email'] ?>"><span class="input-group-addon" id="basic-addon1"><i>@example.com</i></span>
+</div>
+
 </br>
 </br>
 
-<label><b>EMAIL</b></label>
-<input type="text" placeholder="CHANGE EMAIL HERE" name="change_email" value="<?php echo $row['email'] ?>">
+<div class="input-group">
+  <span class="input-group-addon" id="basic-addon1"><i>PHONE</i></span>
+  <input type="text" class="form-control" placeholder="change your email"  name= "change_phone" aria-describedby="basic-addon1" value="<?php echo $row['phone'] ?>">
+</div>
+
 </br>
 </br>
 
-<label><b>PHONE</b></label>
-<input type="text" placeholder="CHANGE PHONE HERE" name="change_phone" value="<?php echo $row['phone'] ?>">
-</br>
-</br>
+<div class="input-group">
+  <span class="input-group-addon" id="basic-addon1"><i>ADDRESS</i></span>
+  <input type="text" class="form-control" placeholder="change your address"  name= "change_address" aria-describedby="basic-addon1" value="<?php echo $row['address'] ?>">
+</div>
 
-<label><b>ADDRESS</b></label>
-<input type="text" placeholder="CHANGE ADDRESS HERE" name="change_address" value="<?php echo $row['address'] ?>">
 </br>
 </br>
-<label><b>USERNAME</b></label>
-<input type="text" placeholder="CHANGE ID USERNAME" name="change_username" value="<?php echo $row['username'] ?>">
+<div class="input-group">
+  <span class="input-group-addon" id="basic-addon1"><i>USERNAME</i></span>
+  <input type="text" class="form-control"  placeholder="change your username"  name= "change_username" aria-describedby="basic-addon1" value="<?php echo $row['username'] ?>"></center>
+</div>
 </br>
 </br>
-<input type="submit" value="UPDATE" name="change">
+<div class="wrapper">
+<input type="submit"  class ="button" value="UPDATE" name="change">	
+</div>
+
+
 <?php endwhile;?>
 </form>
 </div>

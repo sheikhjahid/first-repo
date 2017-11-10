@@ -2,9 +2,12 @@
 <html>
 <title>
 </title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <head>
 	<style>
-	
 input[type=text]{
   width: 100%;
   padding: 12px;
@@ -30,11 +33,32 @@ input[type=submit] {
   cursor: pointer;
   float: right;
 }
+.wrapper
+{
+	text-align:center;
+}
+.button
+{
+	top:92%;
+	position:absolute;
+}
 
 .container {
+  border-radius: 30px;
+  
+  
+}
+
+.input-group {
+  border-radius: 5px;
+  /*background-color: #f2f2f2;*/
+  padding: 20px;
+}
+
+.input-group-addon {
   border-radius: 5px;
   background-color: #f2f2f2;
-  padding: 20px;
+  /*padding: 20px;*/
 }
 
 .col-25 {
@@ -55,50 +79,62 @@ input[type=submit] {
   clear: both;
 }
 
-/
-@media (max-width: 600px) {
-  .col-25, .col-75, input[type=submit] {
-    width: 100%;
-    margin-top: 0;
-  }
-}
+
     </style>	
+	
+	
 </head>
 
 <body>
 
-	<marquee><b><i>SIGN-UP FORM</i></b></marquee>
-	<div class-"container" style="background-color: green;">
+	
+	<div class="container">
+		<center><label><b><i><u>SIGN-UP FORM</u></i></b></label></center>
 		<form method="post" action="insertform.php">
-        <input type="submit" value="Sign-up" name="txtbutton">
-		</br>
-	    </br>
-			<label><b><i>FIRST NAME</i></b></label>
-			<input type="text" placehoder="Enter your firstname" name="a" required>
-		</br>
-	    </br>
-	    <label><b><i>LAST NAME</i></b></label>
-			<input type="text" placehoder="Enter your lastname" name="b" required>
-		</br>
-	    </br>
-	    <label><b><i>EMAIL</i></b></label>
-			<input type="text" placehoder="Enter your email" name="c" required>
-		</br>
-	    </br>
-	    <label><b><i>PHONE</i></b></label>
-			<input type="text" placehoder="Enter your phone number" name="d" required>
-		</br>
-	    </br>
-	    <label><b><i>ADDRESS</i></b></label>
-			<input type="text" placehoder="Enter your address" name="e" required>
-		</br>
-	    </br>
-	    <label><b><i>USERNAME</i></b></label>
-			<input type="text" placehoder="Enter your username" name="f" required>
-		</br>
-	    </br>
-	    <label><b><i>PASSWORD</i></b></label>
-			<input type="password" placehoder="Enter your password" id="password"  name="g" required>
-	</div>
-	</body>
+       	
+			<div class="input-group">
+  <span class="input-group-addon" id="basic-addon1"><i>FIRSTNAME</i></span>
+  <input type="text" class="form-control" placeholder="Enter your firstname"  name= "a" aria-describedby="basic-addon1" required>
+</div>
+		
+	    
+			<div class="input-group">
+  <span class="input-group-addon" id="basic-addon1"><i>LASTNAME</i></span>
+  <input type="text" class="form-control" placeholder="Enter your lastname"  name= "b" aria-describedby="basic-addon1" required>
+</div>
+		
+	    
+			<div class="input-group">
+  <span class="input-group-addon" id="basic-addon1"><i>EMAIL</i></span>
+  <input type="text" class="form-control" placeholder="Enter your email"  name= "c" aria-describedby="basic-addon1"><span class="input-group-addon" id="basic-addon1" required><i>@example.com</i></span>
+</div>
+		
+	    
+			<div class="input-group">
+  <span class="input-group-addon" id="basic-addon1"><i>PHONE</i></span>
+  <input type="text" class="form-control" placeholder="Enter your phone number"  name= "d" aria-describedby="basic-addon1" required>
+</div>
+		
+	    
+			<div class="input-group">
+  <span class="input-group-addon" id="basic-addon1"><i>ADDRESS</i></span>
+  <input type="text" class="form-control" placeholder="Enter your address"  name= "e" aria-describedby="basic-addon1" required>
+</div>
+	    
+			<div class="input-group">
+  <span class="input-group-addon" id="basic-addon1"><i>USERNAME</i></span>
+  <input type="text" class="form-control" placeholder="Enter your username"  name= "f" aria-describedby="basic-addon1" required>
+</div>
+   <div class="input-group">
+  <span class="input-group-addon" id="basic-addon1" required><i>PASSWORD</i></span><input type="password" class="form-control" placeholder="Enter password"  name= "g" aria-describedby="basic-addon1">
+  </div>
+</br>
+</br>
+  <div class="wrapper">
+<input type="submit"  class ="button" value="SUBMIT" name="txtbutton">	
+</div>
+
+</form>		
+</div>
+</body>
 </html>
