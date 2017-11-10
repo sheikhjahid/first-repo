@@ -21,7 +21,7 @@ include('dbconfig.php');
       //$result=$conn->query($query);
        if(mysqli_affected_rows($conn))
        {
-        header("Location: v.php?id=$var");
+        header("Location: search.php?action=update");
          $row=mysqli_fetch_array($result);
          //break;
          print_r($row);
