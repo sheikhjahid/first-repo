@@ -65,11 +65,12 @@ input[type=submit] {
 }
 
 .wrapper{
-	text-align: center;
+	text-align: left;
 }
 .button
 {
 	top: 74%;
+  left:80%;
 	position:absolute;
 
 }
@@ -146,6 +147,11 @@ input[type=submit] {
 
 
 <?php endwhile;?>
+<nav aria-label="back">
+  <ul class="pager">
+    <li><a href="search.php">PREVIOUS</a></li>
+  </ul>
+  </nav>
 </form>
 </div>
 </body>

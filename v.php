@@ -12,7 +12,7 @@
 <?php
 $var=$_GET['id'];
 $query="SELECT `id`, `firstname`, `lastname`, `email`, `phone`, `address`, `username` FROM `registration` WHERE `id`=$var";
-    $search_result=filtertable($query);
+    $sql=filtertable($query);
 
   function filtertable($query)
   {
@@ -22,15 +22,17 @@ $query="SELECT `id`, `firstname`, `lastname`, `email`, `phone`, `address`, `user
   }
 
 ?>
+
   <div class="container">
     <div class="row">
   <div class="col-md-12"> 
-  <?php 
+  <?php
+  $get_result=getView($var,'registration'); 
     mysqli_data_seek($search_result,0);
     while($row=mysqli_fetch_array($search_result))
     {
   ?>
-      <div class="col-md-2">ID</div>
+  <div class="col-md-2">ID</div>
     <div class="col-md-10"><?php echo $row["id"]; ?></div>
   </div>
 </div>

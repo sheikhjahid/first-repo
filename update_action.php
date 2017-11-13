@@ -1,6 +1,6 @@
 <?php
 include('dbconfig.php');
-//die('helloo');
+
     $var=$_GET['id'];
     $X1=$X2=$X3=$X4=$X5=$X6="";
 
@@ -13,21 +13,16 @@ include('dbconfig.php');
       $X5=$_POST['change_address'];
       $X6=$_POST['change_username'];
       $query="UPDATE `registration` SET `firstname`='".$X1."',`lastname`='".$X2."',`email`='".$X3."',`phone`='".$X4."',`address`='".$X5."',`username`='".$X6."' WHERE `registration`.`id`='".$var."'";
-       //die();
-       $result=mysqli_query($conn,$query);
-       //print_r("Hi".$result);
-
-      //$query="UPDATE `registration` SET `firstname`='".$X1."',`lastname`='".$X2."',`email`='".$X3."',`phone`='".$X4."',`address`='".$X5."',`username`='".$X6."'";
-      //$result=$conn->query($query);
+       
+      $result=mysqli_query($conn,$query);
+      
        if(mysqli_affected_rows($conn))
        {
         header("Location: search.php?action=update");
          $row=mysqli_fetch_array($result);
-         //break;
+         
          print_r($row);
-         //echo "</br>";
-         //echo "</br>";
-         //echo "ID="; echo $row['id'];
+         
          echo "</br>";
          echo "</br>";
          echo "FIRSTNAME="; echo $row['firstname'];
