@@ -44,7 +44,7 @@ $sql="insert into registration(firstname,lastname,email,phone,address,username,p
 
 if($conn->query($sql)===TRUE)
 {
-	echo "DATA INSERTED";
+	header("Location:search.php");
 }
 else
 {

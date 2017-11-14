@@ -94,7 +94,7 @@ input[type=submit] {
 	
 	<div class="container">
 		<center><label><b><u>UPDATE PORTAL</u></b></label></center>
-<form action="update_action.php?id=<?php echo $var; ?>" method="post">
+<form action="new_test1.php" method="post">
 
 
 <?php while($row=mysqli_fetch_array($search)) :?>
@@ -142,7 +142,7 @@ input[type=submit] {
 </br>
 </br>
 <div class="wrapper">
-<input type="submit"  class ="button" value="UPDATE" name="change">	
+<input type="submit"  class ="button" value="UPDATE" name="change" on_click="update()">	
 </div>
 
 

@@ -32,7 +32,7 @@
 						{
 				?>				
 					<div class="col-md-2"><?php echo ucwords($field); ?></div>
-					<div class="col-md-10"><?php echo $value; ?></div>
+					<div class="col-md-10"><?php echo $value;?></div>
 				<?php		
 						}
 					}

@@ -68,8 +68,8 @@ $query="SELECT `id`, `firstname`, `lastname`, `email`, `phone`, `address`, `user
 		<div class="col-md-1"><?php echo $row["address"];?></div>
 		<div class="col-md-1"><?php echo $row["username"];?></div>
 		<div class="col-md-2"><a href="test1.php?id=<?php echo $row["id"]; ?>" name="view"><i class="fa fa-eye" aria-hidden="true"></i></a>
-		<a href="test2.php?id=<?php echo $row["id"];?>"><i class="fa fa-edit" aria-hidden="true"></i></a>
-		<a href="delete.php?id=<?php echo $row["id"];?>"><i class="fa fa-trash" aria-hidden="true"></i></a>
+		<a href="update2.php?id=<?php echo $row["id"];?>"><i class="fa fa-edit" aria-hidden="true"></i></a>
+		<a href="delete_action.php?id=<?php echo $row["id"];?>"><i class="fa fa-trash" aria-hidden="true" name="delete"></i></a>
 	</div>
 		
 		<?php

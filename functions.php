@@ -1,6 +1,6 @@
 <?php 
 
-
+	// namespace myClass;
 	class Jahid_Works
 	{
 		protected $host='localhost';
@@ -12,6 +12,37 @@
 		{
 			$this->conn=new mysqli($this->host,$this->username,$this->password,$this->db) or mysql_error();
 		}//end of constructor
+		function getAllData($where='',$fields='',$limit='',$table_name='registration')
+		{
+			$sql="SELECT ";
+			if($fields!='')
+			{
+				$sql.=$fields;
+			}
+			else
+			{
+				$sql.="*";
+			}
+			$sql.=" FROM ".$table_name;
+			if($where!='')
+			{
+				$sql.=' where ';
+				foreach($where as $k=>$v)
+				{
+					$sql.=$k.'='.$v;
+				}
+			}
+			if($limit!='')
+			{
+				$sql.='  limit '.$limit;
+			}
+			$filter_result=mysqli_query($this->conn,$sql);
+			while($row=mysqli_fetch_assoc($filter_result))
+			{
+				$result_arr[]=$row;
+			}
+			return $result_arr;
+		}//end of function
 		function getSpecificData($where='',$fields='',$table_name='registration')
 		{
 			$result_arr=array();
@@ -40,38 +71,66 @@
 			}
 			return $result_arr;
 		}//end of function
-		function getUpdateData($where='',$fields='',$table_name='registration')
+		function setUpdateData($where='',$data='',$table_name='registration')
 		{
-			$update_arr=array();
-			$sql1="UPDATE ";
-			if($field!='')
+			$i=0;
+			$sql="update "."`".$table_name."`";
+			$reqcount = count($data);
+			if(is_array($data) && $reqcount)
 			{
-				$sql1.= $fileds;
+				
+				$sql.=" set ";
+				foreach($data as $k=>$v)
+				{
+					if($i>0)
+					{
+						$sql.=",";
+					}
+					$sql.="`".$k."`='".$v."'";
+					$i++;
+				}
+			}
+			if($where!='')
+			{
+				$sql.=' where ';
+				foreach($where as $k=>$v)
+				{
+					$sql.="`".$k."`". "=" . "'$v'";
+				}
+			}
+			print_r($conn);
+			
+			if($this->conn->query($sql)==TRUE)
+			{
+
+				header("Location:search.php");
 			}
 			else
 			{
-				echo  "wrong command";
+				$this->conn_error();
 			}
-			$sql1.=" FROM".$table_name;
+			
+		}//end of function
+		function setDeleteData($where='',$table_name='registration')
+		{
+			//$delete_arr=array();
+			$sql="delete from ".$table_name;
 			if($where!='')
 			{
-				$sql1.=' WHERE';
-				foreach($where as $i=>$j)
+				$sql.=' where ';
+				foreach($where as $k=>$v)
 				{
-					$sql1.=$i.'='.$j;
+					$sql.=$k."='".$v."'";
 				}
 			}
-			$update_result=mysqli_query($this->conn,$sql);
-			while($row1=mysqli_fetch_assoc($update_result))
+			// echo $sql;die();
+			if($this->conn->query($sql)==TRUE)
 			{
-				$update_arr[]=$row1;
+				return 1;
 			}
-			return $update_arr;
-		//$query=mysqli_query($this->conn,$sql);
-		//return $query;
-	}//end of function
-
+			else
+			{
+				return 0;
+			}
+		}//end of function
 	}//end of class
-?>
-
-

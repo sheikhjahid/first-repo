@@ -10,28 +10,29 @@
 <body>
 <?php
 require_once "functions.php";
-$jw2=new Jahid_works();
+$jw=new Jahid_works();
 $arr='';
 if(isset($_GET['id']))
 {
 $arr['id']=$_GET['id'];
 }
-$fields1='id,firstname,lastname,email,phone,address,username';
-$update_arr=$jw2->getUpdateData($arr,$fields1)
+$fields='id,firstname,lastname,email,phone,address,username';
+$update_arr=$jw->getUpdateData($arr,$fields)
 ?>
 <div class="container">
 	<center><label><b><i><u>UPDATE PORTAL</u></i></b></label></center>
+	<div class="row">
+		<div class="col-md-2">
 	<?php
-	
+
 	foreach($update_arr as $i=>$j)
 	{
-		foreach($j=>$field1=$value)
+		foreach($j=>$fields=$value)
 		{
 	?>
-	<div class="input-group">
-  <span class="input-group-addon" id="basic-addon1"><i><?php echo ucwords($field1); ?></i></span>
-  <input type="text" class="form-control" placeholder="write something.."  name= "write something.." aria-describedby="basic-addon1" value="<?php echo $value; ?>">
-</div>
+	<div class="col-md-2"><?php echo ucwords($fields); ?>
+		<input type ="text" placeholder="write something" value="<?php echo $value1; ?>">
+		<input type="submit"  class ="button" value="UPDATE" name="change">
 <?php
 }
 }
