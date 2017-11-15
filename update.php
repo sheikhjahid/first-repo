@@ -142,7 +142,7 @@ input[type=submit] {
 </br>
 </br>
 <div class="wrapper">
-<input type="submit"  class ="button" value="UPDATE" name="change" on_click="update()">	
+<input type="submit"  class ="button" value="UPDATE" name="change" onclick="update()">	
 </div>
 
 

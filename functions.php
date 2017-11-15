@@ -71,16 +71,16 @@
 			}
 			return $result_arr;
 		}//end of function
-		function setUpdateData($where='',$data='',$table_name='registration')
+		function setUpdateData($where='',$field='',$table_name='registration')
 		{
 			$i=0;
 			$sql="update "."`".$table_name."`";
-			$reqcount = count($data);
-			if(is_array($data) && $reqcount)
+			$reqcount = count($field);
+			if(is_array($field) && $reqcount)
 			{
 				
 				$sql.=" set ";
-				foreach($data as $k=>$v)
+				foreach($field as $k=>$v)
 				{
 					if($i>0)
 					{
@@ -133,4 +133,9 @@
 				return 0;
 			}
 		}//end of function
+		function getPagination($where='',$fields='',$limit='',$table_name='registration')
+		{
+			$result_arr=$this->getAllData($where,$fields,'',$table_name);			
+			return count($result_arr);
+		}
 	}//end of class

@@ -50,7 +50,7 @@ input[type=submit] {
 }
 .button
 {
-	top: 50%;
+	top: 45%;
   left:80%;
 	position:absolute;
 
