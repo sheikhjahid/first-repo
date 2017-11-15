@@ -104,12 +104,34 @@ if(count($resultArr)>0)
 			
 				
 				<nav aria-label="Page navigation">
+
 				  <ul class="pagination">
-				    <li>
-				      <a href="#" aria-label="Previous">
-				        <span aria-hidden="true">&laquo;</span>
+				  	<?php 
+				    	$active_class='active';
+				    	if(isset($_GET['page']))
+				    	{
+				    		$active_class='';
+				    	}
+				    	$j=3; 
+				    		for($i=$pagination;$i>=1;$i--,$j--)
+				    		{
+				    			$active_class='';
+				    			if($_GET['page']==$i)
+				    			{
+				    				$active_class='active';
+				    				$i--;
+				    			}
+
+				    		}
+				    	
+
+				    ?>
+				     <li class="<?php echo $active_class; ?>">
+				      <a href="?page=<?php echo $j--; ?>" aria-label="Previous">
+				        <span aria-hidden="true">PREVIOUS</span>
 				      </a>
 				    </li>
+
 				    <?php 
 				    	$active_class='active';
 				    	if(isset($_GET['page']))
@@ -133,19 +155,29 @@ if(count($resultArr)>0)
 				    	<?php		
 				    		}
 				    	?>
-				    <li>
-				      <a href="#" aria-label="Next">
-				        <span aria-hidden="true">&raquo;</span>
-				      </a>
-				    </li>
-				  </ul>
-				</nav>
+				    	<?php
+				    		$j=3; 
+				    		for($i=1;$i<$pagination;$i++,$j++)
+				    		{
+				    			$active_class='';
+				    			if($_GET['page']==$i)
+				    			{
+				    				$active_class='active';
+				    				$i++;
+				    			}
+				    	?>	
+				        <li class="<?php echo $active_class; ?>"><a href="?page=<?php echo $i++; ?>" aria-label="Next"><span aria-hidden="true">NEXT</span>
+                         </a></li>
+                         <?php		
+				    		}
+				    	?>  
+             		    </nav>
+             		      
+					<div>
 
-			
-			<div>
-				<center><nav aria-label="back"></center>
-					<ul class="pagination pull-center">
-						<li><a href="search.php">BACK TO DATABASE</a></li>
+				<nav aria-label="back">
+					<ul class="pagination pull-left">
+				    <li><a href="search.php">BACK TO DATABASE</a></li>
 					</ul></nav>
 			</div>
 		</div>
