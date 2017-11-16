@@ -138,4 +138,32 @@
 			$result_arr=$this->getAllData($where,$fields,'',$table_name);			
 			return count($result_arr);
 		}
+		function getSearch($where='',$fields='',$table_name='registration')
+		{
+			$result_arr=array();
+			$sql.="SELECT ";
+			if($fields!='')
+			{
+				$sql.=$fields;
+			}
+			else
+			{
+				$sql.="*";
+			}
+			$sql.=" FROM ".$table_name;
+			if($where!='')
+			{
+				$sql.=' where ';
+				foreach($where as $k=>$v)
+				{
+					$sql.=$k.'='.$v;
+				}
+			}
+			$filter_result=mysqli_query($this->conn,$sql);
+			while($row=mysqli_fetch_assoc($filter_result))
+			{
+				$result_arr[]=$row;
+			}
+			return $result_arr;
+		}//end of function
 	}//end of class

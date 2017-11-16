@@ -6,6 +6,12 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <head>
  <style>
+ .container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
  	table,tr,th,td:
  	{
  		border: 1 pixel solid black;
@@ -27,7 +33,8 @@ $query="SELECT `id`, `firstname`, `lastname`, `email`, `phone`, `address`, `user
   
   ?>	
 	<form action="search.php" method="post">
-<input type="text" name="searchvalue" placeholder="write something..">
+    
+<div class="alert alert-warning alert-dismissible fade in" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> <strong>Welcome to the database</strong> YOU CAN VIEW,CHANGE OR DELETE HERE </div>
 <?php
 	
 	if(isset($_GET['action']) && $_GET['action']=="update")
@@ -38,16 +45,33 @@ $query="SELECT `id`, `firstname`, `lastname`, `email`, `phone`, `address`, `user
 	}
 
 ?>
+
+<?php
+require_once "functions.php";
+$jw=new Jahid_Works;
+
+$arr='';
+if(isset($_GET['id']))
+{
+	$arr['id']=$_GET['id'];
+}
+$fields="firstname,lastname,email,phone,address,username";
+
+$result_arr=$jw->getSearch($arr,$fields);
+?>
+
 <div class="container">
+	<center><span class="label-label-default"><b><u><i>REGISTRATION DATABASE</i></u></b></span></center>
+</br>
 	<div class="row">
 		<div class="col-md-12">
-			<div class="col-md-1">ID</div>
-			<div class="col-md-2">FIRSTNAME</div>
-			<div class="col-md-2">LASTNAME</div>
-			<div class="col-md-2">EMAIL</div>
-			<div class="col-md-1">PHONE</div>
-			<div class="col-md-1">ADDRESS</div>
-			<div class="col-md-1">USERNAME</div>
+			<div class="col-md-1"><b><i>ID</i></b></div>
+			<div class="col-md-2"><b><i>FIRSTNAME</i></b></div>
+			<div class="col-md-2"><b><i>LASTNAME</i></b></div>
+			<div class="col-md-2"><b><i>EMAIL</i></b></div>
+			<div class="col-md-1"><b><i>PHONE</i></b></div>
+			<div class="col-md-1"><b><i>ADDRESS</i></b></div>
+			<div class="col-md-1"><b><i>USERNAME</i></b></div>
 			<div class="col-md=2"></div>
 			</div>
 	</div>
