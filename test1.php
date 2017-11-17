@@ -39,6 +39,13 @@
 				?>
 			</div>
 		</div>
+		<div>
+			<nav aria-label="back">
+				<ul class="pager">
+					<li><a href="search.php">BACK TO DATABASE</a></li>
+				</ul>
+			</nav>
+		</div>
 	</div>
 </body>
 </html>

@@ -166,4 +166,31 @@
 			}
 			return $result_arr;
 		}//end of function
+		function getAjaxSearch($where='',$fields='',$table_name='registration')
+		{
+			$result_arr=array();
+			$sql.="SELECT ";
+			if($fields!='')
+			{
+				$sql.=$fields;
+			}
+			else
+			{
+				$sql.="*";
+			}
+			$sql.=" FROM ".$table_name;
+
+			if($where!='')
+			{
+				$sql.=' where '.$where;				
+			}
+			// echo $sql;
+			 // die();
+			$filter_result=mysqli_query($this->conn,$sql);
+			while($row=mysqli_fetch_assoc($filter_result))
+			{
+				$result_arr[]=$row;
+			}
+			return $result_arr;
+		}//end of function
 	}//end of class
