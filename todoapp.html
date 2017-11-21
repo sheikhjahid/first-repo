@@ -1,0 +1,110 @@
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<style>
+input[type=text]{
+	background-color: cyan;
+  width: 30%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+
+button[id=add] {
+  background-color: red;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: center;
+}
+button[id=removeAll] {
+  background-color: green;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: center;
+}
+.wrapper
+{
+	text-align:center;
+	
+}
+.button
+{
+	top:92%;
+	position:absolute;
+}
+
+.container {
+  border-radius: 30px;
+  
+  
+}
+
+.input-group {
+  border-radius: 5px;
+  /*background-color: #f2f2f2;*/
+  padding: 20px;
+}
+
+.input-group-addon {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  /*padding: 20px;*/
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+    </style>
+<body>
+<div class="container">
+<div class="wrapper">
+	<div class="border">
+	<label><h1><b> TO DO APP</b></h1></label>
+	<input type="text" id="text" placeholder="Write something here..">
+	<button id="add">ADD</button>
+	<button id="removeAll">REMOVE ALL</button>
+	<ul id="list"></ul>
+</div>
+</div>
+<script type="text/javascript" src="app.js">
+	localStorage.setItem("TEXT",getElementById("text"));
+</script>
+</div>
+</body>
+</html>
