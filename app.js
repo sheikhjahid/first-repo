@@ -1,16 +1,44 @@
 
-
 var ul=document.getElementById("list");
 removeAll=document.getElementById("removeAll");
 add=document.getElementById("add");
 add.onclick=function(){
 	addLi(ul);
-	
+
 }
+
+var todos = []
+var todosFromStorage;
+function loadTodos(){
+	if(localStorage.getItem('todos')){
+		let todosFromStorage = JSON.parse(localStorage.getItem('todos'))
+		console.log(todosFromStorage)
+	}
+
+ document.write(JSON.parse(localStorage.getItem('todos')));
+}
+
+
+ //console.log(todosFromStorage);
+
+ 
+var main_product_id;
+var items=JSON.parse(localStorage.getItem("todos")); 
+       items=items.filter(function(item) {
+                   if(main_product_id!=todos.id)
+                   {
+                     return todos;
+                   }
+       });
+   localStorage.setItem("todos", JSON.stringify(todos));
+
+
+loadTodos()
 
 function addLi(targetUi)
 {
-	var inputText=document.getElementById("text").value,
+	var inputText=document.getElementById("text").value;
+	todos.push(inputText);
 	li=document.createElement("li"),
 	textNode=document.createTextNode(inputText+" "),
 	removeButton=document.createElement("button");
@@ -30,7 +58,9 @@ function addLi(targetUi)
      li.appendChild(removeButton);
 
      targetUi.appendChild(li);
-     
+
+     console.log(todos)
+     localStorage.setItem('todos', JSON.stringify(todos))
 		
 }
 function delete_item(item)
