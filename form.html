@@ -6,9 +6,10 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
 <head>
 	<style>
-input[type=text]{
+input[type=text],select{
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
@@ -33,13 +34,36 @@ input[type=submit] {
   cursor: pointer;
   float: right;
 }
+input[type=location]{
+  background-color: blue;
+  color: white;
+  padding: 12px 20px;
+  border:none;
+  border-radius:4px;
+  cursor:pointer;
+  float:right;
+  text-align: left;
+}
+
+.location
+{
+  background-color: blue;
+  color: white;
+  padding: 12px 20px;
+  border:none;
+  border-radius:4px;
+  cursor:pointer;
+  float:right;
+  text-align: left;
+}
+
 .wrapper
 {
 	text-align:center;
 }
 .button
 {
-	top:92%;
+	top:100%;
 	position:absolute;
 }
 
@@ -47,6 +71,11 @@ input[type=submit] {
   border-radius: 30px;
   
   
+}
+
+.btn-group{
+  border-radius=5px;
+  background-color: #a2a2a2;
 }
 
 .input-group {
@@ -60,6 +89,11 @@ input[type=submit] {
   background-color: #f2f2f2;
   /*padding: 20px;*/
 }
+
+.p{
+  margin : 0px;
+}
+
 
 .col-25 {
   float: left;
@@ -128,12 +162,87 @@ input[type=submit] {
    <div class="input-group">
   <span class="input-group-addon" id="basic-addon1" required><i>PASSWORD</i></span><input type="password" class="form-control" placeholder="Enter password"  name= "g" aria-describedby="basic-addon1">
   </div>
+
+ 
+  
+  <!-- <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1" required><i>SELECT LOCATION</i></span> -->
+  
+  <!-- <ul class="dropdown-menu"> -->
+    <!-- <select id="country">
+      <option value="australia" name="australia">AUSTRALIA
+        <option value="aus-state"></option>
+        <option value="aus-state">SYDNEY</option>
+        <option value="aus-state">MELBOURNE</option></option> -->
+      <!-- <option value="india" name="india">INDIA
+      <option value="ind-state">SELECT STATE</option>
+        <option value="ind-state">DELHI</option>
+        <option value="ind-state">MUMBAI</option>
+        <option value="ind-state">KOLKATA</option></option> -->
+      <!-- <option value="england" name="england">ENGLAND</option> -->
+    <!-- </select> -->
+      
+        <!-- <option value="state">SELECT STATE</option>
+        <option value="state">SYDNEY</option>
+        <option value="state">MELBOURNE</option> -->
+      
+    <!-- <option value="country" name="nation"><li><b><i>AUSTRALIA</i></b></li></option>
+    <option value="country" name="nation"><li><b><i>INDIA</i></b></li></option>
+    <option value="country" name="nation"><li><b><i>ENGLAND</i></b></li></option> -->
+  
+  <!-- </ul> -->
+</div>
 </br>
 </br>
   <div class="wrapper">
 <input type="submit"  class ="button" value="SUBMIT" name="txtbutton">	
+
 </div>
 
+<p><button onclick="geoFind()" name="locate" class="location"><b><i>Show my Location</i></b></button></p>
+<div id="out"></div>
+<script type="text/javascript">
+  function geoFind() {
+  var output = document.getElementById("out");
+
+  if (!navigator.geolocation){
+    output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
+    return;
+  }
+
+  function success(position) {
+    var latitude  = position.coords.latitude;
+    var longitude = position.coords.longitude;
+
+    output.innerHTML = '<p>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
+
+    var img = new Image();
+    img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=300x300&sensor=false";
+
+    output.appendChild(img);
+  }
+
+  function error() {
+    output.innerHTML = "Unable to retrieve your location";
+  }
+
+  output.innerHTML = "<p>Locating…</p>";
+
+  navigator.geolocation.getCurrentPosition(success, error);
+}
+
+</script>
+<!-- <script type="text/javascript">
+function myMap()
+{
+var mapOptions = { 
+  center : new google.maps.LatLng(61.5,-0.17),
+  zoom : 15,
+  mapTypeId : google.maps.mayTypeId.HYBRID,
+}
+var map= new google.maps.Map(document.getElementById("map"),mapOptions);
+}
+</script> -->
 </form>		
 </div>
 </body>
